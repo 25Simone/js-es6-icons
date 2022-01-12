@@ -128,8 +128,12 @@ function printIcon(object){
     </div>`;
 }
 
+// imposto un ciclo forEach per stampare le icone
+iconsList.forEach((icon) => {
+	printIcon(icon);
+})
 
-
+// definisco gli eventi associati alle diverse opzioni
 selectType.addEventListener('change', (event) => {
 	outputHtml.innerHTML = '';
 	if(event.target.value === 'all'){
@@ -137,7 +141,7 @@ selectType.addEventListener('change', (event) => {
 			printIcon(icon);
 		})
 	}
-	
+
 	if(event.target.value === 'animal'){
 		const animalIconsList = iconsList.filter((icon) => {
 			return icon.type === 'animal';
