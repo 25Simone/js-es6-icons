@@ -1,27 +1,22 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+body{
+    background: #eee;
 }
 header{
     padding: 15px;
     color: #00b4e2;
     font-size: 30px;
+    background: #fff;
 }
 section{
+    height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #fff;
     font-size: 25px;
     background: #00b4e2;
-    padding: 30px;
-}
-section > span{
-    margin-right: 10px;
 }
 #output{
-    background: #eee;
     display: flex;
     flex-wrap: wrap;
 }
