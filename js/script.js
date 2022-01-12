@@ -122,7 +122,7 @@ const selectType = document.getElementById('select-type');
 function printIcon(object){
     const upperName = object.name.toUpperCase();
     outputHtml.innerHTML += `
-    <div class="box">
+    <div class="box col-5 col-sm-3 col-lg-1 m-2">
         <i class="${object.color} ${object.family} ${object.prefix}${object.name}"></i>
         <span class="icon-name">${upperName}</span>
     </div>`;
