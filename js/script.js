@@ -128,14 +128,43 @@ function printIcon(object){
     </div>`;
 }
 
-// imposto il forEach per stampare le icone
-iconsList.forEach((icon) => {
-    printIcon(icon);
-})
 
-selectType.addEventListener('change', () => {
-	const animalIconsList = iconsList.filter((icon) => {
-		return icon.type === 'animal';
-	})
-	console.log(animalIconsList); //debug
+
+selectType.addEventListener('change', (event) => {
+	outputHtml.innerHTML = '';
+	if(event.target.value === 'all'){
+		iconsList.forEach((icon) => {
+			printIcon(icon);
+		})
+	}
+	
+	if(event.target.value === 'animal'){
+		const animalIconsList = iconsList.filter((icon) => {
+			return icon.type === 'animal';
+		})
+		console.log(animalIconsList); //debug
+		animalIconsList.forEach((icon) => {
+			printIcon(icon);
+		})
+	}
+
+	if(event.target.value === 'vegetable'){
+		const vegetableIconsList = iconsList.filter((icon) => {
+			return icon.type === 'vegetable';
+		})
+		console.log(vegetableIconsList); //debug
+		vegetableIconsList.forEach((icon) => {
+			printIcon(icon);
+		})
+	}
+
+	if(event.target.value === 'user'){
+		const userIconsList = iconsList.filter((icon) => {
+			return icon.type === 'user';
+		})
+		console.log(userIconsList); //debug
+		userIconsList.forEach((icon) => {
+			printIcon(icon);
+		})
+	}
 })
