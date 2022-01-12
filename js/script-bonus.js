@@ -123,14 +123,16 @@ function printIcon(object){
     const upperName = object.name.toUpperCase();
     outputHtml.innerHTML += `
     <div class="box col-5 col-sm-3 col-lg-1 m-2">
-        <i class="${object.color} ${object.family} ${object.prefix}${object.name}"></i>
-        <span class="icon-name">${upperName}</span>
+    <i class="${object.family} ${object.prefix}${object.name}"></i>
+    <span class="icon-name">${upperName}</span>
     </div>`;
 }
+const icons = document.getElementsByTagName('i');
 
 // imposto un ciclo forEach per stampare le icone
 iconsList.forEach((icon) => {
 	printIcon(icon);
+    iconsColor();
 })
 
 // definisco gli eventi associati alle diverse opzioni
@@ -140,6 +142,7 @@ selectType.addEventListener('change', (event) => {
 		iconsList.forEach((icon) => {
 			printIcon(icon);
 		})
+        iconsColor();
 	}
 
 	if(event.target.value === 'animal'){
@@ -149,6 +152,7 @@ selectType.addEventListener('change', (event) => {
 		animalIconsList.forEach((icon) => {
 			printIcon(icon);
 		})
+        iconsColor();
 	}
 
 	if(event.target.value === 'vegetable'){
@@ -158,6 +162,7 @@ selectType.addEventListener('change', (event) => {
 		vegetableIconsList.forEach((icon) => {
 			printIcon(icon);
 		})
+        iconsColor();
 	}
 
 	if(event.target.value === 'user'){
@@ -167,5 +172,15 @@ selectType.addEventListener('change', (event) => {
 		userIconsList.forEach((icon) => {
 			printIcon(icon);
 		})
+        iconsColor();
 	}
 })
+
+
+// BONUS
+function iconsColor(){
+    for(let i = 0; i < icons.length; i++){
+        const randomColor = Math.floor(Math.random()*16777215).toString(16);
+        icons[i].style.color = `#${randomColor}`;
+    }
+}
