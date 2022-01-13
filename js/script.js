@@ -128,44 +128,21 @@ function printIcon(object){
     </div>`;
 }
 
-// imposto un ciclo forEach per stampare le icone
-iconsList.forEach((icon) => {
-	printIcon(icon);
-})
+// definisco la funzione per mostrare le icone
+function showIcons(array){
+	// imposto un ciclo forEach per stampare le icone
+	array.forEach((icon) => {
+		printIcon(icon);
+	})
+}
+
+showIcons(iconsList);
 
 // definisco gli eventi associati alle diverse opzioni
-selectType.addEventListener('change', (event) => {
+selectType.addEventListener('change', function() {
 	outputHtml.innerHTML = '';
-	if(event.target.value === 'all'){
-		iconsList.forEach((icon) => {
-			printIcon(icon);
-		})
-	}
-
-	if(event.target.value === 'animal'){
-		const animalIconsList = iconsList.filter((icon) => {
-			return icon.type === 'animal';
-		})
-		animalIconsList.forEach((icon) => {
-			printIcon(icon);
-		})
-	}
-
-	if(event.target.value === 'vegetable'){
-		const vegetableIconsList = iconsList.filter((icon) => {
-			return icon.type === 'vegetable';
-		})
-		vegetableIconsList.forEach((icon) => {
-			printIcon(icon);
-		})
-	}
-
-	if(event.target.value === 'user'){
-		const userIconsList = iconsList.filter((icon) => {
-			return icon.type === 'user';
-		})
-		userIconsList.forEach((icon) => {
-			printIcon(icon);
-		})
-	}
+	const filteredIconsArray = iconsList.filter((icon) => {
+		return this.value === 'all' || this.value === icon.type; // in questo caso con l'arrow function il this fa riferimento al padre, quindi al select stesso
+	})
+	showIcons(filteredIconsArray);
 })
